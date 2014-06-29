@@ -1,26 +1,36 @@
+Mouser Shopping Cart:
+https://www.mouser.com/ProjectManager/ProjectDetail.aspx?AccessID=5bcadebf04
+$6.39 for all parts except circuit board
+
+
+
 Partlist
 
-Exported from acdimmer.sch at 5/15/2014 6:28:13 PM
+Exported from kossr.sch at 6/28/2014 7:56:33 PM
 
 EAGLE Version 6.3.0 Copyright (c) 1988-2012 CadSoft
 
 Assembly variant: 
 
-Part       Value          Device          Package      Library         Sheet
+Part       Value          Device                Package      Library            Sheet
 
-5V_PWR                    MSTBV2          MSTBV2       con-phoenix-500 1
-AC_PWR                    MSTBV2          MSTBV2       con-phoenix-500 1
-AREF-SIG                  MSTBV2          MSTBV2       con-phoenix-500 1
-C1         0.01uF         C-US050-024X044 C050-024X044 adafruit        1
-HEATER_PWR                MSTBV2          MSTBV2       con-phoenix-500 1
-IC1        TINY85-20PU    TINY13-20PU     DIL08        atmel           1
-LED1                      LED3MM          LED3MM       led             1
-OK1        MOC3020M       MOC3020M        DIL06        optocoupler     1
-OK2        H11AA11        H11AA11         DIL06        twomey          1
-R1         33K            R-US_0207/7     0207/7       rcl             1
-R2         10K            R-US_0207/7     0207/7       rcl             1
-R3         1K             R-US_0207/7     0207/7       rcl             1
-R4         470            R-US_0207/7     0207/7       rcl             1
-R5         220            R-US_0207/7     0207/7       rcl             1
-R6         2.8K           R-US_0207/7     0207/7       rcl             1
-T1         BTA12-600V     BTA12-600V      TO220V       twomey          1
+5V_PWR                    MSTBV2                MSTBV2       con-phoenix-500    1
+AC_PWR                    MSTBV2                MSTBV2       con-phoenix-500    1
+AREF-SIG                  MSTBV2                MSTBV2       con-phoenix-500    1
+C1         0.01uF         C-US050-024X044       C050-024X044 adafruit           1
+HEATER_PWR                MSTBV2                MSTBV2       con-phoenix-500    1
+JP-50HZ                   JUMPER-2SMD-NO        SJ_2S-NO     SparkFun-Retired   1
+JP-EX                     JUMPER-2SMD-NO        SJ_2S-NO     SparkFun-Retired   1
+LED1                      LED3MM                LED3MM       led                1
+OK1        MOC3020M       MOC3020M              DIL06        optocoupler        1
+OK2        H11AA11        H11AA11               DIL06        twomey             1
+R1         33K            R-US_0207/7           0207/7       rcl                1
+R2         10K            R-US_0207/7           0207/7       rcl                1
+R3         1K             R-US_0207/7           0207/7       rcl                1
+R4         470            R-US_0207/7           0207/7       rcl                1
+R5         220            R-US_0207/7           0207/7       rcl                1
+R6         2.8K           R-US_0207/7           0207/7       rcl                1
+T1         BTA12-600      BTA12-600             TO220AB      twomey             1
+U1         TINY45-20-DIP  ATTINY45TINY45-20-DIP DIP08        SparkFun-DigitalIC 1
+
+
