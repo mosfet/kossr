@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="6.3">
+<eagle version="6.6.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -7302,6 +7302,9 @@ Basic 0.1" spaced jumper. Use with breakaway headers.</description>
 <part name="GND4" library="supply1" deviceset="GND" device=""/>
 <part name="JP-EX" library="SparkFun-Retired" deviceset="JUMPER-2" device="SMD-NO"/>
 <part name="GND5" library="supply1" deviceset="GND" device=""/>
+<part name="C2" library="adafruit" deviceset="C-US" device="025-024X044" value="0.1uF"/>
+<part name="R7" library="rcl" deviceset="R-US_" device="0207/7" value="3.9K"/>
+<part name="GND6" library="supply1" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -7334,8 +7337,8 @@ Basic 0.1" spaced jumper. Use with breakaway headers.</description>
 <instance part="AC_PWR" gate="-2" x="134.62" y="81.28" rot="MR0"/>
 <instance part="5V_PWR" gate="-1" x="-10.16" y="93.98"/>
 <instance part="5V_PWR" gate="-2" x="-10.16" y="106.68"/>
-<instance part="AREF-SIG" gate="-1" x="-10.16" y="71.12" rot="MR180"/>
-<instance part="AREF-SIG" gate="-2" x="-10.16" y="68.58" rot="MR180"/>
+<instance part="AREF-SIG" gate="-1" x="-43.18" y="48.26" rot="MR180"/>
+<instance part="AREF-SIG" gate="-2" x="-43.18" y="45.72" rot="MR180"/>
 <instance part="HEATER_PWR" gate="-1" x="134.62" y="20.32" rot="MR0"/>
 <instance part="HEATER_PWR" gate="-2" x="134.62" y="15.24" rot="MR0"/>
 <instance part="U1" gate="G$1" x="17.78" y="99.06"/>
@@ -7343,6 +7346,9 @@ Basic 0.1" spaced jumper. Use with breakaway headers.</description>
 <instance part="GND4" gate="1" x="45.72" y="86.36"/>
 <instance part="JP-EX" gate="A" x="73.66" y="106.68" rot="R270"/>
 <instance part="GND5" gate="1" x="71.12" y="101.6"/>
+<instance part="C2" gate="G$1" x="-12.7" y="35.56"/>
+<instance part="R7" gate="G$1" x="-17.78" y="45.72"/>
+<instance part="GND6" gate="1" x="-12.7" y="22.86"/>
 </instances>
 <busses>
 </busses>
@@ -7378,6 +7384,11 @@ Basic 0.1" spaced jumper. Use with breakaway headers.</description>
 <segment>
 <pinref part="JP-EX" gate="A" pin="2"/>
 <pinref part="GND5" gate="1" pin="GND"/>
+</segment>
+<segment>
+<pinref part="C2" gate="G$1" pin="2"/>
+<pinref part="GND6" gate="1" pin="GND"/>
+<wire x1="-12.7" y1="25.4" x2="-12.7" y2="30.48" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$1" class="2">
@@ -7482,8 +7493,8 @@ Basic 0.1" spaced jumper. Use with breakaway headers.</description>
 <net name="AREF" class="0">
 <segment>
 <pinref part="AREF-SIG" gate="-1" pin="SK"/>
-<wire x1="-2.54" y1="71.12" x2="10.16" y2="71.12" width="0.1524" layer="91"/>
-<label x="-2.54" y="71.12" size="1.778" layer="95"/>
+<wire x1="-35.56" y1="48.26" x2="-22.86" y2="48.26" width="0.1524" layer="91"/>
+<label x="-35.56" y="48.26" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="U1" gate="G$1" pin="PB4(ADC2)"/>
@@ -7494,13 +7505,9 @@ Basic 0.1" spaced jumper. Use with breakaway headers.</description>
 <net name="PWM_IN" class="0">
 <segment>
 <pinref part="AREF-SIG" gate="-2" pin="SK"/>
-<wire x1="-2.54" y1="68.58" x2="10.16" y2="68.58" width="0.1524" layer="91"/>
-<label x="-2.54" y="68.58" size="1.778" layer="95"/>
-</segment>
-<segment>
-<pinref part="U1" gate="G$1" pin="PB3(ADC3)"/>
-<wire x1="30.48" y1="99.06" x2="40.64" y2="99.06" width="0.1524" layer="91"/>
-<label x="35.56" y="99.06" size="1.778" layer="95"/>
+<wire x1="-35.56" y1="45.72" x2="-22.86" y2="45.72" width="0.1524" layer="91"/>
+<label x="-35.56" y="45.72" size="1.778" layer="95"/>
+<pinref part="R7" gate="G$1" pin="1"/>
 </segment>
 </net>
 <net name="ACN" class="1">
@@ -7570,6 +7577,21 @@ Basic 0.1" spaced jumper. Use with breakaway headers.</description>
 <wire x1="43.18" y1="33.02" x2="50.8" y2="33.02" width="0.1524" layer="91"/>
 </segment>
 </net>
+<net name="PWM_FILTERED" class="0">
+<segment>
+<pinref part="C2" gate="G$1" pin="1"/>
+<pinref part="R7" gate="G$1" pin="2"/>
+<wire x1="-12.7" y1="38.1" x2="-12.7" y2="45.72" width="0.1524" layer="91"/>
+<wire x1="-12.7" y1="45.72" x2="0" y2="45.72" width="0.1524" layer="91"/>
+<junction x="-12.7" y="45.72"/>
+<label x="-10.16" y="45.72" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="U1" gate="G$1" pin="PB3(ADC3)"/>
+<wire x1="30.48" y1="99.06" x2="35.56" y2="99.06" width="0.1524" layer="91"/>
+<label x="35.56" y="99.06" size="1.778" layer="95"/>
+</segment>
+</net>
 </nets>
 </sheet>
 </sheets>
@@ -7580,11 +7602,6 @@ Basic 0.1" spaced jumper. Use with breakaway headers.</description>
 <approved hash="102,1,99.06,76.2,+12V,ACHOT,,,,"/>
 <approved hash="102,1,121.92,96.52,+12V,ACHOT,,,,"/>
 <approved hash="102,1,121.92,50.8,+12V,ACHOT,,,,"/>
-<approved hash="115,1,39.37,33.3417,LED1,,,,,"/>
-<approved hash="115,1,139.051,86.36,AC_PWR,,,,,"/>
-<approved hash="115,1,-47.3565,104.14,5V_PWR,,,,,"/>
-<approved hash="115,1,-63.5024,58.42,AREF-SIG,,,,,"/>
-<approved hash="115,1,142.527,20.32,HEATER_PWR,,,,,"/>
 </errors>
 </schematic>
 </drawing>
